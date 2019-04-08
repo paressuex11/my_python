@@ -14,6 +14,7 @@ import turtle
 #python 生成类的本质是调用type函数，自建metaclass的时候应继承type类
 
 #except可以捕获一个异常以及它的子类异常
+# logging.exception(e)打印错误栈
 def drawCircleTurtle(x, y, r):
     tur.up()
     tur.setpos(x + r, y)
@@ -41,13 +42,25 @@ def drawCircleTurtle(x, y, r):
 #print(f1,f2,f3,f4)
 
 
-class Matrix:
-    def __init__(self, *args, **kwargs):
-        return super().__init__(*args, **kwargs)
+#class Matrix:
+#    def __init__(self, *args, **kwargs):
+#        return super().__init__(*args, **kwargs)
 
-ma = Matrix()
+#ma = Matrix()
 
-print(ma.__hash__());
-ma.rows = 1;
+#print(ma.__hash__());
+#ma.rows = 1;
+def log():
+
+def foo(s):
+    return 10 / int(s)
+
+def bar(s):
+    return foo(s) * 2
+
+def main():
+    bar('0')
+
+main()
 
 
