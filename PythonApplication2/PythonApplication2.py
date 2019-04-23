@@ -1,5 +1,3 @@
-import math
-import turtle 
 #tur = turtle.Turtle()
 # python里不存在块级作用域，但存在局部作用域eg:functions
 #python 的类"鸭子类型" ：一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子
@@ -15,14 +13,14 @@ import turtle
 
 #except可以捕获一个异常以及它的子类异常
 # logging.exception(e)打印错误栈
-def drawCircleTurtle(x, y, r):
-    tur.up()
-    tur.setpos(x + r, y)
-    tur.down()
+#def drawCircleTurtle(x, y, r):
+#    tur.up()
+#    tur.setpos(x + r, y)
+#    tur.down()
 
-    for i in range(0, 365, 5):
-        a = math.radians(i)
-        tur.setpos(x + r*math.cos(a), y + r*math.sin(a))
+#    for i in range(0, 365, 5):
+#        a = math.radians(i)
+#        tur.setpos(x + r*math.cos(a), y + r*math.sin(a))
 #drawCircleTurtle(100, 100, 50)
 #turtle.mainloop()
 
@@ -50,17 +48,88 @@ def drawCircleTurtle(x, y, r):
 
 #print(ma.__hash__());
 #ma.rows = 1;
-def log():
+#def foo(s):
+#    return 10 / int(s)
 
-def foo(s):
-    return 10 / int(s)
+#def bar(s):
+#    return foo(s) * 2
 
-def bar(s):
-    return foo(s) * 2
+#def main():
+#    bar('0')
 
+#main()
+#import threading
+#def a():
+#    aa = 1
+#while 1:
+#    th = threading.Thread(target = a)
+#    th.start()
+#    th.join()
+import numpy as np
+import matplotlib.pyplot as pyplot
 def main():
-    bar('0')
+    """
+    绘制方波
+    """
+    #x = np.linspace(-np.pi, np.pi, 200)
+    #k = np.arange(1, 200)
+    #miu = 2 * k - 1
+    #f = np.zeros_like(x)
+    #for i in range(len(x)):
+    #    f[i] = np.sum(np.sin(miu * x[i]) * miu)
+    #f = f * 4 / np.pi
+    #pyplot.plot(x, f)
+    #pyplot.show()
+    #绘制失败
 
-main()
+
+    M = np.mat("1 2 3; 4 5 6 ; 7 8 9")
+    print(M[...,:2])
+    nn = np.linalg.pinv(M)
+    print(np.linalg.eig(M))
+    print(nn.dot(M))
+
+#numpy learning 
+#linspace()生成一个组均匀分布的数据
+#array[:,1]获取一列
+#ndarray[...,1]
+#array.compress筛选数据
+#array.flat数组迭代器
+#array.flatten()把数组铺平
+#array.resize()原地修改数组的size, array.reshape()生成新数组
+#split(array, number, axis = ?) 数组分割
+#concatenate((arr1, arr2), axis = ?)数组合并
+#column_stack((arr1, arr2)) 两个一维数组当成列向量后合并
+#array的广播甚至允许bool运算，只不过array会变成bool type 
+#np.extract(bool_array, array2) 从array2里抽取元素
+ 
+
+#numpy.linalg
+#mat("1 1 1; 1 1 1; 2 2 2;")
+#np.linalg.solve(mat, array) 求解Ax = b
+#linalg.eigvals(mat) 求特征值
+#linalg.eig(mat) 返回一个(array for eigenvalues, matrix for eigenvectors)matrix好像是列向量来的
+#np.dot 点乘
+#linalg.svd(mat) 奇异值分解， 返回左矩阵， 奇异值列表(中间矩阵的值)，右矩阵
+
+#matplotlib
+#subplot(int) int一般由三位数字组成 行数 列数 序号(从1开始)
+#hist()直方图
+#bar()条形图
+
+#pandas
+#read_excel(filepath) 读取filepath的文件返回一个dataframe(推荐预装xlwt和xlrd)
+#dataframe.rename(columns = dict, axis) dict的键是原来的列索引，值是新的列索引
+#Series.value_count() 返回一个series是值和出现次数series
+#dataframe.columns 返回列索引列表
+#dataframe.values 把每一行当成一项返回它们的集合
+#dataframe[index] 返回列索引为index的列
+#dataframe[boolean expressions] 可以筛选dataframe内容
+    #例如： dataframe[dataframe[index] >= 90] 可以返回dataframe 的第index列(index不一定是int)的值>=90的项们
+    #dataframe[index1, index2][(dataframe[index] >= 90) & (dataframe[index] <= 100)] 多个筛选条件可以括号后用bool表达式写出来，前面那个中括号是仅显示哪些列
+#series.sort_index() 按索引排序 series.sort_values() 按值排序
 
 
+
+if __name__ == "__main__":
+    main()
